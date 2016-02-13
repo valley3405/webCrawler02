@@ -19,7 +19,7 @@ html = requests.get(URL).content
 
 soup = BeautifulSoup(html,'lxml')
 
-img_name = '1'
+img_name = 1
 for imgurl_list_soup in soup.findAll('img', {'class':'origin_image zh-lightbox-thumb'}):
 	imgurl = imgurl_list_soup.get('data-original')
 	print imgurl
