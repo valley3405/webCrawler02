@@ -8,10 +8,23 @@ def log(message):
     if debug:
         print message
 
+'''
 def download_image(url, save_path): 
     ''' 根据图片url下载图片到save_path '''
     try:
         urllib.urlretrieve(url, save_path)
+        log('Downloaded a image: ' + save_path)
+    except Exception, e:
+        print 'An error catched when download a image:', e
+'''
+
+def download_image(url, save_path): 
+    ''' 根据图片url下载图片到save_path '''
+    try:
+        img = requests.get(imgurl,stream=True)
+        with open(save_path,'wb') as fd:
+            for chunk in img.iter_content():
+                fd.write(chunk)
         log('Downloaded a image: ' + save_path)
     except Exception, e:
         print 'An error catched when download a image:', e
