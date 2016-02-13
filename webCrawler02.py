@@ -24,7 +24,7 @@ def load_page_html(url):
 def down_page_images(page, save_dir):
     ''' 下载第page页的图片 '''
     html_context = load_page_html('http://qiubaichengren.com/%d.html' % page)
-    soup = BeautifulSoup(html_context)
+    soup = BeautifulSoup(html_context,'lxml')
     for ui_module_div in soup.findAll('div', {'class': 'ui-module'}):
         img_tag = ui_module_div.find('img')
         if img_tag is not None and img_tag.has_attr('alt') and img_tag.has_attr('src'):
