@@ -18,7 +18,7 @@ import time
 
 def get_dir_file(dirname):
     filelist = []
-    for file in os.listdir(path=dirname):
+    for file in os.listdir(dirname):
         targetFile = os.path.join(dirname,  file) 
         filelist.append(targetFile)
     return filelist
